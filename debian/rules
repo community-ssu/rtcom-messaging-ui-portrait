@@ -1,0 +1,22 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+build:
+
+clean:
+	dh_testdir
+	dh_testroot
+	dh_clean -prtcom-messaging-ui-portrait
+
+binary:
+	dh_testdir
+	dh_testroot
+	dh_clean -k -prtcom-messaging-ui-portrait
+	dh_install
+	dh_fixperms
+	dh_installdeb
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+.PHONY: build clean binary

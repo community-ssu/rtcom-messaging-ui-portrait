@@ -1,0 +1,16 @@
+Source: rtcom-messaging-ui-portrait
+Section: comm
+Priority: optional
+Maintainer: Pali Rohár <pali.rohar@gmail.com>
+Build-Depends: debhelper (>= 5)
+Standards-Version: 3.9.3
+
+Package: rtcom-messaging-ui-portrait
+Architecture: all
+Depends: rtcom-messaging-ui (>= 2.1.15)
+Description: RTCom Messaging UI. (portrait mode support)
+ The Messaging Application using Telepathy.
+ .
+ Offers Instant Messaging and Short Message Service functionality.
+ .
+ This package contains portrait mode support.
