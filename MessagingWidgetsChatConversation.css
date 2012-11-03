@@ -7,13 +7,11 @@
  */
 body {
   word-wrap: break-word;
-  vertical-align:bottom;
+  padding: 0px 16px;
 }
 
 
 div.Bubble { 
-  max-width: 97%; width: auto;
-  width: 800px;
   display: table-cell;
   vertical-align: middle;
   padding: 0px;
@@ -21,7 +19,6 @@ div.Bubble {
 }
 
 div.InnerBubble {
-  max-width: 97%; width: auto;
   display: block;
 }
 
@@ -29,6 +26,8 @@ div.Message {
   margin-top:   8px; 
   margin-left:  0px;
   margin-right: 0px;
+  display: table;
+  width: 100%;
 }
 
 div.Message:first-child { 
@@ -73,14 +72,14 @@ img.MessageAvatar {
   outline-style: solid; 
   outline-width: 3px; 
   outline-offset: -1px; 
-  -moz-outline-radius: 4px; 
+  -moz-outline-radius: 6px; 
 }
 
 div.MessageAvatar { 
   vertical-align: top;
   display: table-cell;
-  padding-left: 0px;
-  padding-right: 2px;
+  padding-left: 8px;
+  padding-right: 8px;
   padding-top: 1px;
 }
 
@@ -90,7 +89,7 @@ div.MessageAvatarBorder {
   height: 64px;
   position: absolute;
   display: inline-block;
-  -moz-border-radius: 4px; 
+  -moz-border-radius: 6px; 
   border-width: 1px;
   border-style: solid;
 }
@@ -126,9 +125,8 @@ img.MessagePresence {
 
 
 span.MessageRight {
-  display: inline-block;
+  display: table-cell;
   margin-left: 8px;
-  float: right;
 }
 
 /**
@@ -143,3 +141,4 @@ span.MessageTimeStamp {
   height: 24px;
   width: 24px;
 }
+
