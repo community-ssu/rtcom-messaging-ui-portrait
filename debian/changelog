@@ -1,3 +1,10 @@
+rtcom-messaging-ui-portrait (1.0-1+devel0) fremantle; urgency=low
+
+  * Keep the last message in the view when device orientation changes.
+  * Make new message adding portrait-aware.
+
+ -- Ivaylo Dimitrov <freemangordon@abv.bg>  Wed, 01 May 2013 21:04:33 +0300
+
 rtcom-messaging-ui-portrait (1.0-1) fremantle; urgency=low
 
   * Fix version string
