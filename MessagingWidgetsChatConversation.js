@@ -58,6 +58,8 @@ var firstFlush = true;
 var flushTimeout = 0;
 
 var storedWindowHeight = 340;
+var storedScreenHeight = 0;
+var storedBottomElement;
 
 /**
  * MessagingWidgetsChatConversation_init:
@@ -76,6 +78,9 @@ function MessagingWidgetsChatConversation_init ()
 
     /* Setting onresize handler to window */
     window.onresize = MessagingWidgetsRenderer_onResize;
+
+    storedScreenHeight = screen.height;
+    storedWindowHeight = storedScreenHeight - 140;
 
     if (!markupTemplateSelf)
     {
@@ -418,6 +423,10 @@ MessagingWidgetsRenderer_onScroll (event)
         myBatchRequested = HISTORY_BATCH_SIZE;
         alert("history-request:" + HISTORY_BATCH_SIZE);
     }
+
+   obj=document.elementFromPoint(120, window.innerHeight-16);
+   if(obj.id != "")
+       storedBottomElement = obj;
 }
 
 /* When conversation view editor expands/shrinks, scroll accordingly to */
@@ -425,6 +434,13 @@ MessagingWidgetsRenderer_onScroll (event)
 function
 MessagingWidgetsRenderer_onResize (event)
 {
+    if( storedScreenHeight != screen.height)
+    {
+        storedBottomElement.scrollIntoView(false);
+        storedScreenHeight = screen.height;
+        storedWindowHeight = window.innerHeight;
+    }
+
     if (Math.abs(storedWindowHeight - window.innerHeight) != 0) {
         window.scrollBy(0, storedWindowHeight - window.innerHeight);
         storedWindowHeight = window.innerHeight;
@@ -492,7 +508,7 @@ MessagingWidgetsRenderer_addMessage (
 
         /* scrolling to new message, if the view is close to bottom, or */
         /* sent by self. If not, we don't scroll */
-        if (document.body.scrollHeight - window.pageYOffset < 640 || self) {
+        if (document.body.scrollHeight - window.pageYOffset < (screen.height-140)*2 || self) {
             new_message.scrollIntoView (false);
         }
     }

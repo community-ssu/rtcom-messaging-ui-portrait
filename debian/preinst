@@ -17,7 +17,9 @@ set -e
 case "$1" in
     install|upgrade)
         dpkg-divert --package rtcom-messaging-ui-portrait --rename --add /usr/share/rtcom-messaging-ui/html/MessagingWidgetsSMSConversation.css
+        dpkg-divert --package rtcom-messaging-ui-portrait --rename --add /usr/share/rtcom-messaging-ui/html/MessagingWidgetsSMSConversation.js
         dpkg-divert --package rtcom-messaging-ui-portrait --rename --add /usr/share/rtcom-messaging-ui/html/MessagingWidgetsChatConversation.css
+        dpkg-divert --package rtcom-messaging-ui-portrait --rename --add /usr/share/rtcom-messaging-ui/html/MessagingWidgetsChatConversation.js
     ;;
 
     abort-upgrade)
